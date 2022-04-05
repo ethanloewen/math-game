@@ -1,7 +1,13 @@
 class Turn
 
   def getLives(player1, player2)
-    puts "#{player1.name}: #{player1.lives}/3 vs #{player2.name}: #{player2.lives}/3"
+    if player1.lives > 0 && player2.lives > 0
+      puts "#{player1.name}: #{player1.lives}/3 vs #{player2.name}: #{player2.lives}/3"
+    elsif player1.lives <= 0
+      puts "#{player2.name} wins with a score of #{player2.lives}/3"
+    elsif player2.lives <= 0
+      puts "#{player1.name} wins with a score of #{player1.lives}/3"
+    end
   end
 
   def newTurn(player, q)
@@ -12,8 +18,7 @@ class Turn
       puts "#{player.name}: YES! You are correct."
     else
       puts "#{player.name}: Seriously? No!"
-      # add code to remove a life here!
+      player.lives -= 1
     end
   end
-
 end

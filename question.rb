@@ -9,5 +9,4 @@ class Question
     @question = "What does #{num1} + #{num2} equal?"
     @answer = num1 + num2
   end
-
 end
