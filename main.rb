@@ -10,14 +10,13 @@ current_player = p2
 
 # main game loop
 while p1.lives > 0 && p2.lives > 0
-  if current_player == p2
-    current_player = p1
-  else
-    current_player = p2
-  end
+  current_player = turn.swapPlayer(current_player, p1, p2)
 
   q = Question.new()
   turn.newTurn(current_player, q)
   turn.getLives(p1, p2)
 end
+
+puts "----- GAME OVER -----"
+puts "Good bye!"
 
